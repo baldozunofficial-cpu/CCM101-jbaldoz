@@ -1,4 +1,4 @@
-# Reflection
+#Mission Reflection
 
 This laboratory activity helped me develop a better understanding of cloud infrastructure and how its different components work together. Among the major components, I consider **networking** to be one of the most important because it allows users, applications, servers, and storage resources to communicate with one another. Even if a system has sufficient CPU, memory, and storage, it would have limited use without a reliable network connection. During the laboratory, I was able to observe how network interfaces and IP addresses provide connectivity between different resources. This showed me that compute, storage, and networking are closely connected and must work together to create a functional cloud environment.
 
@@ -9,4 +9,3 @@ Another important lesson from this laboratory was the value of **technical docum
 Throughout the activity, I developed several new technical skills. I learned how to investigate a Linux server using basic command-line tools and identify its operating system, processor, memory, storage, and network configuration. I also learned how these resources correspond to cloud services such as compute, storage, and networking. In addition, I gained experience comparing equivalent services from AWS, Microsoft Azure, and Google Cloud Platform. Working with Git and GitHub also improved my understanding of version control, including creating files, committing changes, configuring Git, and pushing my work to a repository.
 
 Finally, this laboratory helped improve my **GitHub Cloud Computing Portfolio**. The portfolio now includes documentation about cloud infrastructure components, Linux server investigation results, cloud provider comparisons, supporting screenshots, and a reflection on the activities completed. These outputs demonstrate my ability to investigate technical environments, understand basic cloud concepts, organize technical information, and document my work professionally. Overall, this mission gave me practical experience that strengthened both my Linux and cloud computing knowledge while helping me build a more complete technical portfolio.
-
