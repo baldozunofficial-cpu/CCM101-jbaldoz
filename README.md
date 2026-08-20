@@ -1,4 +1,4 @@
-CCM101 - Cloud Computing Portfolio
+# CCM101 - Cloud Computing Portfolio
 
 Hi! I’m Jonas E. Baldoz, a Bachelor of Science in Information Technology (BSIT) student currently taking CCM101 – Cloud Computing.
 
