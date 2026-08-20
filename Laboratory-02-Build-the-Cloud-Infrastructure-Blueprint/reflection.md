@@ -1,4 +1,4 @@
-#Mission Reflection
+# Mission Reflection
 
 This laboratory activity helped me develop a better understanding of cloud infrastructure and how its different components work together. Among the major components, I consider **networking** to be one of the most important because it allows users, applications, servers, and storage resources to communicate with one another. Even if a system has sufficient CPU, memory, and storage, it would have limited use without a reliable network connection. During the laboratory, I was able to observe how network interfaces and IP addresses provide connectivity between different resources. This showed me that compute, storage, and networking are closely connected and must work together to create a functional cloud environment.
 
