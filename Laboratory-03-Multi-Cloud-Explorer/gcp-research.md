@@ -34,3 +34,5 @@ The **Google Cloud Console** is the web-based interface for managing GCP resourc
 - Cloud-native applications built with containers and Kubernetes
 - Media, gaming, and streaming workloads needing high throughput
 - Startups and research organizations focused on data science
+<img width="943" height="543" alt="Screenshot 2026-08-24 9 26 45 PM" src="https://github.com/user-attachments/assets/5da4e85f-1588-4ef4-bf17-363df992df6f" />
+
