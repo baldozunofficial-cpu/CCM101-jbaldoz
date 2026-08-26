@@ -1,4 +1,4 @@
-# "GCP Research – Google Cloud
+# GCP Research – Google Cloud
 
 ## Brief Overview
 
@@ -46,3 +46,4 @@ The **Google Cloud Console** is the web-based interface for managing GCP resourc
 - Cloud-native applications built with containers and Kubernetes
 - Media, gaming, and streaming workloads needing high throughput
 - Startups and research organizations focused on data science 
+<img width="1920" height="874" alt="gcp-research" src="https://github.com/user-attachments/assets/3361103a-fa32-4ab0-a101-2c2f55354b23" />
