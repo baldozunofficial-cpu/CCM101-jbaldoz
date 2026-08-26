@@ -54,3 +54,13 @@ AWS is a good choice because the company serves customers around the world and n
 * **Amazon S3** – stores product images and files
 * **Amazon RDS** – manages customer and product databases
 * **Amazon CloudFront** – delivers website content quickly to users worldwide
+# Checkpoint 6 – Multi-Cloud Decision Matrix
+
+| Business Requirement        | Recommended Platform | Justification                                                                                           |
+| --------------------------- | -------------------- | ------------------------------------------------------------------------------------------------------- |
+| **Startup Company**         | **AWS**              | AWS offers many services, flexible options, and can easily scale as the startup grows.                  |
+| **Enterprise Organization** | **Azure**            | Azure is well suited for large organizations and provides strong enterprise features.                   |
+| **Microsoft Environment**   | **Azure**            | Azure works best with Microsoft products such as Windows Server, Microsoft 365, and Active Directory.   |
+| **AI / Machine Learning**   | **GCP**              | GCP has strong AI and machine learning tools such as Vertex AI and powerful data analytics services.    |
+| **Kubernetes Deployment**   | **GCP**              | Google created Kubernetes, and GKE provides strong support for managing containerized applications.     |
+| **Global Web Application**  | **AWS**              | AWS has a large global infrastructure and many services for building highly available web applications. |
