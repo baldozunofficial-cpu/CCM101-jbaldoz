@@ -1,9 +1,21 @@
 
----
+## Linux Server Investigation
 
-## Checkpoint 7 – Linux Server Investigation
+Operating System: Ubuntu 24.04.4 LTS (checked using `lsb_release -a`)
+CPU Information: Intel Xeon E312xx (Sandy Bridge, IBRS update), 1 core (checked using `lscpu`)
+Memory: 1.9 GiB total RAM (checked using `free -h`)
+Disk Space: 19 GB total disk space on the main partition (checked using `df -h`)
 
-### System Information (collected via KillerCoda Playground)
+If this Linux server were migrated to the cloud, which AWS, Azure, and GCP services could host it?
+Since this server is small and general-purpose, with only 1 CPU core and under 2 GB of RAM, it would be a good fit for entry-level virtual machine services on any of the three major cloud platforms:
+
+AWS: This server could be hosted on Amazon EC2, using a small instance type like t2.micro or t3.micro, which are designed for low-cost, general-purpose workloads.
+
+Azure: This server could be hosted on Azure Virtual Machines, using a small size like B1s, which is suitable for low-traffic and lightweight applications.
+
+Google Cloud Platform: This server could be hosted on Compute Engine, using a small machine type like e2-micro, which is designed for lightweight workloads.
+
+## Terminal Output
 
 **Operating System:**
 
@@ -21,10 +33,3 @@
 
 <img width="934" height="723" alt="Screenshot 2026-08-26 11 48 46 AM" src="https://github.com/user-attachments/assets/5ef9cacb-d525-4398-9ff7-0b7735c2895f" />
 
-### Cloud Migration Recommendation
-If this Linux server were migrated to the cloud, it could be hosted using:
-- **AWS:** Amazon EC2 — a burstable instance type such as **t3.medium** (2 vCPU, 4 GB RAM) closely matches this server's specs at low cost.
-- **Azure:** Azure Virtual Machines — the **B2s** or **B2ms** burstable series offers comparable 2 vCPU / 4 GB RAM configurations.
-- **GCP:** Compute Engine — an **e2-medium** instance (2 vCPU, 4 GB RAM) is the equivalent cost-efficient option.
-
-Given the modest CPU, memory, and disk footprint of this server, a small, burstable, cost-optimized instance type from any of the three providers would comfortably host this workload. Since this is a lightweight Ubuntu server with no unusual GPU or high-throughput demands, cost-efficiency (burstable/spot instances) would be the primary deciding factor rather than raw performance, making all three platforms equally viable — the final choice would likely come down to whichever ecosystem the rest of the client's infrastructure already lives in.
