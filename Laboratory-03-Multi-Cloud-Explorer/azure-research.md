@@ -69,3 +69,4 @@ Azure is commonly used for:
 * **Database management**
 * **File storage and backup**
 * **Enterprise and Microsoft-based systems**
+<img width="1687" height="897" alt="azure" src="https://github.com/user-attachments/assets/c26339df-4f8a-4d66-ac4a-e4abbcdfa9f2" />
