@@ -1,10 +1,17 @@
 
 ## Linux Server Investigation
 
-Operating System: Ubuntu 24.04.4 LTS (checked using `lsb_release -a`)
-CPU Information: Intel Xeon E312xx (Sandy Bridge, IBRS update), 1 core (checked using `lscpu`)
-Memory: 1.9 GiB total RAM (checked using `free -h`)
-Disk Space: 19 GB total disk space on the main partition (checked using `df -h`)
+Operating System: Ubuntu 24.04.4 LTS
+Checked using lsb_release -a
+
+CPU Information: Intel Xeon E312xx (Sandy Bridge, IBRS update), 1 CPU core
+Checked using lscpu
+
+Memory: 1.9 GiB total RAM
+Checked using free -h
+
+Disk Space: 19 GB total disk space on the main partition
+Checked using df -h
 
 If this Linux server were migrated to the cloud, which AWS, Azure, and GCP services could host it?
 Since this server is small and general-purpose, with only 1 CPU core and under 2 GB of RAM, it would be a good fit for entry-level virtual machine services on any of the three major cloud platforms:
