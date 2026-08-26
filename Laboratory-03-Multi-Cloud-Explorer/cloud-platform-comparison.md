@@ -1,5 +1,4 @@
 # Checkpoint 3 – Compare the Major Cloud Platforms 
-## Cloud Platform Comparison
 
 | Category                | Amazon Web Services (AWS)                    | Microsoft Azure                               | Google Cloud Platform (GCP)                               |
 | ----------------------- | -------------------------------------------- | --------------------------------------------- | --------------------------------------------------------- |
