@@ -70,4 +70,6 @@ AWS is commonly used for:
 * **Online gaming and media**
 * **Business databases**
 * **Cloud-based applications**
+<img width="1540" height="1087" alt="aws-research" src="https://github.com/user-attachments/assets/ad47560e-5203-4541-ab96-06c81430dee7" />
+
 
