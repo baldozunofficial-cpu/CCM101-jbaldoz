@@ -15,20 +15,28 @@ lifecycle of a running container.
 
 ## Docker Commands Executed
 
-**Checkpoint 3 - Verifying Docker**
-- `docker --version` — Displays the installed Docker version.
-- `docker info` — Shows detailed status of the Docker environment (containers, images, storage driver, etc.).
+## Docker Commands Executed
+| Command | What It Did |
+|---|---|
+| `docker --version` | Displays the installed Docker version. |
+| `docker info` | Shows detailed status of the Docker environment (containers, images, storage driver, etc.). |
 
 **Checkpoint 4 - Deploying Nginx**
-- `docker pull nginx` — Downloads the official Nginx image from Docker Hub.
-- `docker run -d -p 8080:80 nginx` — Runs the Nginx container in detached mode, mapping host port 8080 to container port 80.
-- `curl http://localhost:8080` — Sends an HTTP request to confirm the web server is responding.
+
+| Command | What It Did |
+|---|---|
+| `docker pull nginx` | Downloads the official Nginx image from Docker Hub. |
+| `docker run -d -p 8080:80 nginx` | Runs the Nginx container in detached mode, mapping host port 8080 to container port 80. |
+| `curl http://localhost:8080` | Sends an HTTP request to confirm the web server is responding. |
 
 **Checkpoint 5 - Container Lifecycle**
-- `docker ps` — Lists all currently running containers.
-- `docker stop <container_id>` — Stops the running Nginx container.
-- `docker ps -a` — Verifies the container's status is now "Exited."
-- `docker rm <container_id>` — Permanently removes the stopped container.
+
+| Command | What It Did |
+|---|---|
+| `docker ps` | Lists all currently running containers. |
+| `docker stop <container_id>` | Stops the running Nginx container. |
+| `docker ps -a` | Verifies the container's status is now "Exited." |
+| `docker rm <container_id>` | Permanently removes the stopped container. |
 
 ## Skills Learned
 - How to pull and run container images from Docker Hub
