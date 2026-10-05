@@ -1,39 +1,38 @@
 # Docker Compose Guide
 
-The docker-compose.yml File
+## The docker-compose.yml File
+
+```yaml
+version: "3"
+
 services:
-  db:
-    image: mysql:8.0
-    container_name: mysql-db
+  database:
+    image: mariadb:10.6
     environment:
-      MYSQL_ROOT_PASSWORD: rootpass
-      MYSQL_DATABASE: appdb
-      MYSQL_USER: appuser
-      MYSQL_PASSWORD: apppass
-    volumes:
-      - db_data:/var/lib/mysql
+      - MYSQL_ROOT_PASSWORD=cloudnova_root
+      - MYSQL_PASSWORD=cloudnova_pass
+      - MYSQL_DATABASE=nextcloud_db
+      - MYSQL_USER=nextcloud_user
 
   app:
-    build: .
-    container_name: web-app
+    image: nextcloud
     ports:
-      - "5000:5000"
+      - 8080:80
     environment:
-      MYSQL_HOST: db
-      MYSQL_DATABASE: appdb
-      MYSQL_USER: appuser
-      MYSQL_PASSWORD: apppass
-    depends_on:
-      - db
+      - MYSQL_PASSWORD=cloudnova_pass
+      - MYSQL_DATABASE=nextcloud_db
+      - MYSQL_USER=nextcloud_user
+      - MYSQL_HOST=database
+```
 
-volumes:
-  db_data:
-  
 ## What does the `services:` block do?
-The `services:` block defines each container that makes up the application. Every entry under it (here, `database` and `app`) is one service, with its own image, ports, and environment variables. Docker Compose reads this block and creates and connects all of the containers from a single file.
 
-## How does the Nextcloud app container find the database container?
-Through the `MYSQL_HOST=database` environment variable. Compose puts all services on a shared network and uses each service name as a hostname, so `database` resolves to the MariaDB container's address. This is why the database does not need a published port.
+The `services:` block is where I list every container my application needs. Each entry under it, like `database` and `app`, is one service with its own image, ports, and environment variables. When I run Compose, it reads this block and starts one container for each service, so I don't have to start them one by one.
 
-## What is the difference between `docker run` (Mission 4) and `docker-compose up -d`?
-`docker run` starts one container at a time, and you must type out every option (image, ports, environment variables) each time. `docker-compose up -d` reads a YAML file and starts the whole multi-container stack together, with networking set up automatically. The `-d` flag runs everything in the background. The YAML file is also repeatable and can be saved in version control.
+## How did the app container find the database?
+
+The app container found the database by using the name `database`. Compose puts all the services on the same network, and each service name works like a hostname. In the app service I set `MYSQL_HOST=database`, so when Nextcloud tries to connect to `database`, Docker points it to the MariaDB container. I never had to type an IP address, which is useful because container IPs can change.
+
+## docker run vs docker-compose up -d
+
+`docker run` starts only one container, and I have to type every option myself (image, ports, environment variables, network). With two or more containers, that gets long and easy to get wrong. `docker-compose up -d` starts everything in the file with a single command, and the `-d` runs it in the background so I can still use my terminal. It's also easier to repeat because the whole setup is saved in the file.
