@@ -27,12 +27,12 @@ services:
 
 ## What does the `services:` block do?
 
-The `services:` block is where I list every container my application needs. Each entry under it, like `database` and `app`, is one service with its own image, ports, and environment variables. When I run Compose, it reads this block and starts one container for each service, so I don't have to start them one by one.
+The `services:` block declares the containers that together make up my cloud setup. In this file there are two entries, `database` (MariaDB) and `app` (Nextcloud), and each one carries its own image, port mapping, and environment variables. Compose reads the block and builds a container from every entry, which means the whole stack is defined in one place.
 
-## How did the app container find the database?
+## How does the Nextcloud container know where the database is?
 
-The app container found the database by using the name `database`. Compose puts all the services on the same network, and each service name works like a hostname. In the app service I set `MYSQL_HOST=database`, so when Nextcloud tries to connect to `database`, Docker points it to the MariaDB container. I never had to type an IP address, which is useful because container IPs can change.
+It uses the `MYSQL_HOST=database` environment variable. Compose places every service on a shared network and registers each service name as a hostname, so `database` resolves to the MariaDB container automatically. That is why the app never needed an IP address, and why the database only exposes port 3306 inside the network instead of publishing it to the outside.
 
-## docker run vs docker-compose up -d
+## What is the difference between `docker run` and `docker-compose up -d`?
 
-`docker run` starts only one container, and I have to type every option myself (image, ports, environment variables, network). With two or more containers, that gets long and easy to get wrong. `docker-compose up -d` starts everything in the file with a single command, and the `-d` runs it in the background so I can still use my terminal. It's also easier to repeat because the whole setup is saved in the file.
+With `docker run` I start a single container and must supply all its options on the command line each time. For a two-container stack, that means two long commands plus setting up the network between them by hand. `docker-compose up -d` reads the YAML file and brings up both containers, already connected, in one step. The `-d` flag detaches them so they run in the background. Because the settings live in a file, the deployment can be repeated exactly and saved in Git.
