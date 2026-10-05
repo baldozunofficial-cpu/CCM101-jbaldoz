@@ -1,25 +1,33 @@
 # Docker Compose Guide
-version: "3"
 
+The docker-compose.yml File
 services:
-  database:
-    image: mariadb:10.6
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
     environment:
-      - MYSQL_ROOT_PASSWORD=cloudnova_root
-      - MYSQL_PASSWORD=cloudnova_pass
-      - MYSQL_DATABASE=nextcloud_db
-      - MYSQL_USER=nextcloud_user
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: appdb
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: apppass
+    volumes:
+      - db_data:/var/lib/mysql
 
   app:
-    image: nextcloud
+    build: .
+    container_name: web-app
     ports:
-      - 8080:80
+      - "5000:5000"
     environment:
-      - MYSQL_PASSWORD=cloudnova_pass
-      - MYSQL_DATABASE=nextcloud_db
-      - MYSQL_USER=nextcloud_user
-      - MYSQL_HOST=database
+      MYSQL_HOST: db
+      MYSQL_DATABASE: appdb
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: apppass
+    depends_on:
+      - db
 
+volumes:
+  db_data:
   
 ## What does the `services:` block do?
 The `services:` block defines each container that makes up the application. Every entry under it (here, `database` and `app`) is one service, with its own image, ports, and environment variables. Docker Compose reads this block and creates and connects all of the containers from a single file.
