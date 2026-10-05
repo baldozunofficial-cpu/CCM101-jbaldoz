@@ -36,3 +36,4 @@ It uses the `MYSQL_HOST=database` environment variable. Compose places every ser
 ## What is the difference between `docker run` and `docker-compose up -d`?
 
 With `docker run` I start a single container and must supply all its options on the command line each time. For a two-container stack, that means two long commands plus setting up the network between them by hand. `docker-compose up -d` reads the YAML file and brings up both containers, already connected, in one step. The `-d` flag detaches them so they run in the background. Because the settings live in a file, the deployment can be repeated exactly and saved in Git.
+
