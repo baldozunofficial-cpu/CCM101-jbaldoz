@@ -1,5 +1,32 @@
 # Docker Compose Guide
+services:
+  db:
+    image: mysql:8.0
+    container_name: mysql-db
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpass
+      MYSQL_DATABASE: appdb
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: apppass
+    volumes:
+      - db_data:/var/lib/mysql
 
+  app:
+    build: .
+    container_name: web-app
+    ports:
+      - "5000:5000"
+    environment:
+      MYSQL_HOST: db
+      MYSQL_DATABASE: appdb
+      MYSQL_USER: appuser
+      MYSQL_PASSWORD: apppass
+    depends_on:
+      - db
+
+volumes:
+  db_data:
+  
 ## What does the `services:` block do?
 The `services:` block defines each container that makes up the application. Every entry under it (here, `database` and `app`) is one service, with its own image, ports, and environment variables. Docker Compose reads this block and creates and connects all of the containers from a single file.
 
