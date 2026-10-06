@@ -10,7 +10,3 @@ Monitoring becomes even more important when managing a large number of container
 
 Through this mission, I became more comfortable using command-line tools for system monitoring and troubleshooting. I can now check memory usage with `free -h`, examine disk space with `df -h`, monitor running processes with `top`, and inspect container activity using Docker commands such as `docker logs` and `docker stats`. More importantly, I learned that troubleshooting should be based on evidence rather than assumptions. When I encounter a problem, I should examine the available information, such as error messages, logs, resource usage, and command output, before deciding what action to take.
 
-This experience also improved my confidence when dealing with real technical problems. For example, when encountering Git authentication errors or rejected pushes, I learned to read and understand the error message instead of repeatedly trying random solutions. The same approach can be applied to server and container troubleshooting: **observe the problem, collect evidence, identify the cause, and then apply the appropriate solution**.
-
-Overall, this mission helped me develop a better understanding of system monitoring, container management, and troubleshooting. I now have a clearer idea of how host resources affect containers and why monitoring both system-level resources and application-level behavior is necessary. These skills will be useful when managing servers in real-world environments, especially where system availability, performance, and reliability are important.
-
