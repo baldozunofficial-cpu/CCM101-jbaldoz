@@ -1,31 +1,46 @@
-# Laboratory 09 - Cloud Automation Engineer
+# Backup Script Guide
 
-## Mission Overview
-In this lab I played the role of a Cloud Automation Engineer for CloudNova
-Technologies. My mission was to automate a nightly backup of client data using
-a Bash script and a Linux cron job, then document the work for the IT team.
+## Full Script (backup.sh)
 
-## Objectives
-- Research Bash scripts, variables, and cron jobs
-- Write a Bash script that compresses a folder into a timestamped backup
-- Grant execute permission to the script with `chmod`
-- Schedule the script to run automatically at 2:00 AM using cron
-- Document the script and reflect on automation
+```bash
+#!/bin/bash
+# Automated Backup Script for CloudNova Technologies
 
-## Commands Executed
-- `mkdir app-data` and `echo "..." > app-data/data.txt` - created dummy client data
-- `nano backup.sh` - wrote the backup script
-- `./backup.sh` - ran the script (denied at first, worked after chmod)
-- `chmod +x backup.sh` - made the script executable
-- `ls -l backups/` - verified the .tar.gz backup was created
-- `crontab -l` - listed scheduled cron jobs
-- `env EDITOR=nano crontab -e` - opened the cron editor
-- `git add`, `git commit`, `git push` - saved my work to GitHub
+SOURCE_DIR="app-data"
+BACKUP_DIR="backups"
+TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
 
-## Skills Learned
-- Writing and running Bash scripts
-- Using variables and command substitution in scripts
-- Managing Linux file permissions with chmod
-- Compressing files with tar
-- Scheduling tasks with cron
-- Documenting technical work for a team
+echo "Initiating automated backup..."
+
+# Create the backup directory if it does not exist
+mkdir -p $BACKUP_DIR
+
+# Compress the source directory into a tarball (.tar.gz)
+tar -czf $BACKUP_DIR/backup_$TIMESTAMP.tar.gz $SOURCE_DIR
+
+echo "Backup completed successfully at $TIMESTAMP!"
+```
+
+## What `chmod +x` Does
+By default, Linux treats a new file as plain text and will not let it run as a
+program, which is why my first `./backup.sh` gave "Permission denied". The
+command `chmod +x backup.sh` adds the execute permission to the file, so the
+system now allows it to run as a program.
+
+## Cron Expression
+
+```
+0 2 * * * cd /root/CCM101-jbaldoz && ./backup.sh
+```
+
+| Field | Value | Meaning |
+|-------|-------|---------|
+| Minute | `0` | At minute 0 (the top of the hour) |
+| Hour | `2` | At 2 AM (24-hour clock) |
+| Day of Month | `*` | Every day of the month |
+| Month | `*` | Every month |
+| Day of Week | `*` | Every day of the week |
+
+Together, this runs the backup every night at exactly 2:00 AM. The
+`cd /root/CCM101-jbaldoz &&` part moves into the script's folder first, because
+the script uses relative paths (`app-data` and `backups`).
